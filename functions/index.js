@@ -4,17 +4,17 @@ const cors = require("cors");
 
 const app = express();
 
-// Enable CORS
+// Enable CORS for frontend to call APIs
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // Added comment
 
-// Import routes
+// Import your Controllers (APIs)
 const domainController = require("./src/api/domainController");
-const mailgunWebhookController = require("./src/api/mailgunWebhookController");
+const mailgunWebhookController = require("./src/api/mailGunWebhookController");
 
-// Use routes
+// Attach Routes
 app.use("/api/domain", domainController);
 app.use("/api/mailgun", mailgunWebhookController);
 
-// Export as Firebase Function
+// Export as Firebase Cloud Function
 exports.api = functions.https.onRequest(app);

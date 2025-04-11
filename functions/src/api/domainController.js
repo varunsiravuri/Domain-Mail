@@ -1,6 +1,6 @@
 const express = require("express");
 const router = new express.Router();
-const mailgunService = require("../utils/mailgunService");
+const mailgunService = require("../utils/mailgunservice");
 const admin = require("firebase-admin");
 
 // Initialize Firestore

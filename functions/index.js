@@ -9,12 +9,13 @@ app.use(cors());
 app.use(express.json()); // Added comment
 
 // Import your Controllers (APIs)
-const domainController = require("./src/api/domainController");
-const mailgunWebhookController = require("./src/api/mailGunWebhookController");
+const domaincontroller = require("./src/api/domaincontroller");
+const mailgunwebhookcontroller = require("./src/api/mailgunwebhookcontroller");
+
 
 // Attach Routes
-app.use("/api/domain", domainController);
-app.use("/api/mailgun", mailgunWebhookController);
+app.use("/api/domain", domaincontroller);
+app.use("/api/mailgun", mailgunwebhookcontroller);
 
 // Export as Firebase Cloud Function
 exports.api = functions.https.onRequest(app);
